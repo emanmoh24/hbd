@@ -1,58 +1,13 @@
-// const click = document.querySelector(".click")
-// const giftBox = document.querySelector(".gift-box")
-// const shadow = document.querySelector(".shadow")
-// const giftContainer = document.querySelector(".gift-container")
-// const frame = document.querySelector("iframe")
-// click.addEventListener("click", () => {
-//     if (click.className === "click") {
-//         click.classList.add("active")
-//         giftBox.classList.add("active")
-//         shadow.classList.add("active")
-//         giftContainer.classList.add("active")
-//     } else {
-//         click.classList.remove("active")
-//         giftBox.classList.remove("active")
-//         shadow.classList.remove("active")
-//         giftContainer.classList.remove("active")
-//     }
-// })
-
-// click.addEventListener("click", () => {
-//     click.classList.toggle("active");
-//     giftBox.classList.toggle("active");
-//     shadow.classList.toggle("active");
-//     giftContainer.classList.toggle("active");
-//     frame.classList.toggle("active");
-// });
-
-
-// const click = document.querySelector(".click");
-// const giftBox = document.querySelector(".gift-box");
-// const shadow = document.querySelector(".shadow");
-// const giftContainer = document.querySelector(".gift-container");
-// const iframe = document.querySelector(".gift-box iframe");
-
-// click.addEventListener("click", () => {
-//     click.classList.toggle("active");
-//     giftBox.classList.toggle("active");
-//     shadow.classList.toggle("active");
-//     giftContainer.classList.toggle("active");
-
-//     // Check if the gift box is now active (opened)
-//     if (giftBox.classList.contains("active")) {
-//         // Trigger autoplay
-//         iframe.src = "./assets/Video Project 8.mp4";
-//     } else {
-//         // Stop autoplay when closed by resetting the src
-//         iframe.src = "./assets/Video Project 8.mp4";
-//     }
-// });
-
 const click = document.querySelector(".click");
 const giftBox = document.querySelector(".gift-box");
 const shadow = document.querySelector(".shadow");
 const giftContainer = document.querySelector(".gift-container");
 const shortVideo = document.querySelector(".short-video");
+const cat = document.querySelector("#birthdayCat")
+
+window.addEventListener("load", () => {
+    cat.play()
+})
 
 click.addEventListener("click", () => {
     click.classList.toggle("active");

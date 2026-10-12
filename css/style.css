@@ -30,31 +30,46 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 2rem 1rem; */
-  /* overflow: hidden; */
-  position: relative;
 }
 
-.one h1 {
+section:first-of-type {
+  gap: clamp(1rem, 3vw, 3rem);
+}
+
+h1 {
   margin: 0;
   font-size: clamp(2.4rem, 5vw, 5rem);
   line-height: 1.1;
   text-align: center;
   color: darkred;
   z-index: 2;
+  letter-spacing: 1px;
+  max-width: min(42vw, 540px);
 }
 
-/* .one {
-  position: relative;
+h2 {
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 1px;
+  color:#212f3c ;
+  margin: 0;
+  padding-bottom: 20px;
 }
-
-.two {
-  position: relative;
-} */
 
 .birthday-cake {
   position: relative;
-  top: 20px;
+  top: calc(240px * var(--cake-scale, 1));
+  left: calc(140px * var(--cake-scale, 1));
+  transform: scale(var(--cake-scale, 1));
+  transform-origin: top left;
+}
+
+.one {
+  --cake-scale: 1;
+  position: relative;
+  flex: 0 0 auto;
+  width: calc(350px * var(--cake-scale));
+  height: calc(425px * var(--cake-scale));
 }
 
 .holder {
@@ -426,14 +441,20 @@ canvas {
     padding: 1.5rem 1rem;
   }
 
-  .one {
+  section:first-of-type {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0;
   }
 
-  .birthday-cake {
-    transform: scale(0.8);
-    transform-origin: center center;
+  section:first-of-type > h1 {
+    order: 2;
+    max-width: 90%;
+    margin-top: 1rem;
+  }
+
+  section:first-of-type > .one {
+    --cake-scale: 0.8;
+    order: 1;
   }
 
   .gift-container {
@@ -443,14 +464,12 @@ canvas {
 }
 
 @media (max-width: 520px) {
-  .one h1 {
+  section:first-of-type > h1 {
     font-size: clamp(2rem, 8vw, 3.2rem);
-    max-width: 90%;
   }
 
-  .birthday-cake {
-    transform: scale(0.62);
-    margin-top: 0.5rem;
+  section:first-of-type > .one {
+    --cake-scale: 0.62;
   }
 
   .gift-container {
@@ -464,18 +483,12 @@ canvas {
     min-height: 70vh;
   }
 
-  .birthday-cake {
-    transform: scale(0.52);
+  section:first-of-type > .one {
+    --cake-scale: 0.52;
   }
 
   .gift-container {
     --gift-scale: 0.5;
   }
-}
 
-h2 {
-  text-align: center;
-  font-size: 30px;
-  letter-spacing: 1px;
-  color: ;
 }
