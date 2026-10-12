@@ -1,0 +1,481 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "ChildHood";
+  src: url("../fonts/Child Hood.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #68b0ab;
+  font-family: "ChildHood", cursive, sans-serif;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 2rem 1rem; */
+  /* overflow: hidden; */
+  position: relative;
+}
+
+.one h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  line-height: 1.1;
+  text-align: center;
+  color: darkred;
+  z-index: 2;
+}
+
+/* .one {
+  position: relative;
+}
+
+.two {
+  position: relative;
+} */
+
+.birthday-cake {
+  position: relative;
+  top: 20px;
+}
+
+.holder {
+  position: absolute;
+  width: 350px;
+  height: 20px;
+  border-radius: 100px;
+  background-color: #212f3c;
+  top: 10px;
+  left: -140px;
+}
+
+.holder::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 150px;
+  background-color: #cacfd2;
+  left: 130px;
+  top: 20px;
+}
+
+.holder::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 135px;
+  background-color: #68b0ab;
+  border-radius: 30px 30px 0 0;
+  left: 65px;
+  top: 20px;
+  box-shadow: 125px 0 #68b0ab;
+}
+
+.cake-shadow {
+  position: absolute;
+  width: 350px;
+  height: 20px;
+  border-radius: 50%;
+  top: 170px;
+  left: -135px;
+  background-color: rgba(0, 0, 0, 0.095);
+  z-index: 1;
+}
+
+.cake-shadow::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 20px;
+  background-color: #cacfd2;
+  border-radius: 20px;
+  left: 95px;
+  top: -10px;
+}
+
+.cake {
+  position: absolute;
+  overflow: hidden;
+  width: 275px;
+  height: 140px;
+  background-color: #fad7a8;
+  top: -130px;
+  left: -101px;
+  border-radius: 30px 30px 0 0;
+}
+
+.cake::before {
+  content: "";
+  position: absolute;
+  background-color: #935116;
+  width: 275px;
+  height: 15px;
+  top: 75px;
+  box-shadow: 0 30px #935116;
+}
+
+.cake::after {
+  content: "";
+  position: absolute;
+  background-color: #573612;
+  width: 275px;
+  height: 40px;
+  box-shadow: 0 10px rgba(0, 0, 0, 0.07);
+}
+
+.chocolate {
+  position: absolute;
+  background-color: #573612;
+  width: 25px;
+  height: 45px;
+  top: 25px;
+  left: 0;
+  z-index: 2;
+  border-radius: 50px;
+  box-shadow:
+    25px 2px #fad7a8,
+    50px -10px #573612,
+    75px -5px #fad7a8,
+    100px 3px #573612,
+    125px 0 #fad7a8,
+    150px -5px #573612,
+    175px 3px #fad7a8,
+    200px -5px #573612,
+    225px -10px #fad7a8,
+    250px 4px #573612;
+}
+
+.candle {
+  position: absolute;
+  width: 15px;
+  height: 70px;
+  background-color: white;
+  top: -200px;
+  left: 30px;
+  box-shadow: inset 0 -10px #e74c3c;
+}
+
+.candle::before {
+  content: "";
+  position: absolute;
+  background-color: #e74c3c;
+  width: 15px;
+  height: 15px;
+  top: 10px;
+  box-shadow: 0 25px #e74c3c;
+}
+
+.candle::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  width: 2px;
+  height: 15px;
+  top: -15px;
+  left: 6px;
+}
+
+.flame {
+  position: absolute;
+  background-color: #f4d83f;
+  opacity: 0.9;
+  box-shadow:
+    inset 0 -5px 5px #d35400,
+    5px -5px 20px #fbffa3;
+  background-color: #f4d03f;
+  width: 20px;
+  height: 30px;
+  top: -240px;
+  border-radius: 50%;
+  left: 27px;
+  animation: flame 0.5s infinite;
+}
+
+@keyframes flame {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+
+.gift-container {
+  --gift-scale: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  margin-left: -150px;
+  bottom: 20%;
+  transform-origin: center bottom;
+}
+
+.gift-container.active {
+  animation: vibration 1s ease forwards;
+}
+
+@keyframes vibration {
+  0% {
+    transform: scale(var(--gift-scale));
+  }
+  25% {
+    transform: scale(
+      calc(var(--gift-scale) * 0.95),
+      calc(var(--gift-scale) * 1.05)
+    );
+  }
+  50% {
+    transform: scale(
+      calc(var(--gift-scale) * 1.1),
+      calc(var(--gift-scale) * 0.9)
+    );
+  }
+  75% {
+    transform: scale(
+      calc(var(--gift-scale) * 0.9),
+      calc(var(--gift-scale) * 1.1)
+    );
+  }
+  100% {
+    transform: scale(var(--gift-scale));
+  }
+}
+
+.gift-container,
+.gift-box {
+  position: absolute;
+  height: 200px;
+  width: 300px;
+  background-color: #ec9c4a;
+  animation: bounce 4s ease infinite forwards;
+}
+
+.gift-container > .gift-box {
+  --gift-scale: 1;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-24px) scale(var(--gift-scale, 1));
+  }
+  50% {
+    transform: translateY(0px) scale(var(--gift-scale, 1));
+  }
+  100% {
+    transform: translateY(-24px) scale(var(--gift-scale, 1));
+  }
+}
+
+.gift-box.active {
+  animation: none;
+}
+
+.gift-box::before {
+  content: "";
+  position: absolute;
+  background-color: #e76f51;
+  width: 50px;
+  height: 200px;
+  left: 124px;
+}
+
+.gift-box::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  box-shadow: inset 0 10px rgb(0, 0, 0, 0.3);
+}
+
+.click {
+  position: absolute;
+  background-color: #ec9c4a;
+  width: 340px;
+  height: 90px;
+  top: -90px;
+  left: -20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.click.active {
+  transition-delay: 1s;
+  transform: translateY(-300px);
+}
+
+.click::before {
+  content: "";
+  position: absolute;
+  background-color: #e76f51;
+  width: 50px;
+  height: 90px;
+  left: 144px;
+  z-index: 2;
+}
+
+.click::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 0;
+  border-bottom: 60px solid #e76f51;
+  border-top: 60px solid #e76f51;
+  border-right: 60px solid transparent;
+  border-left: 0px solid transparent;
+  transform: rotate(-90deg);
+  top: -92px;
+  left: 136px;
+  z-index: 3;
+}
+
+.gift-container .shadow {
+  content: " ";
+  position: relative;
+  width: 340px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 100px;
+  border-radius: 50%;
+  animation: bounceOut 4s ease infinite forwards;
+}
+
+@keyframes bounceOut {
+  0% {
+    transform: translateY(24px);
+    scale: 0.7;
+  }
+  50% {
+    transform: translateY(0px);
+    scale: 1;
+  }
+  100% {
+    transform: translateY(24px);
+    scale: 0.7;
+  }
+}
+
+.gift-container .shadow.active {
+  animation: none;
+  transform: translateY(0px) scale(1);
+}
+
+.gift-box .video-wrapper {
+  position: absolute;
+  top: -20px;
+  left: 60px;
+  width: 180px;
+  height: 320px;
+  z-index: 0;
+  opacity: 0;
+  transform: translateY(50px) scale(0.3);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  pointer-events: none;
+  transition-delay: 1s;
+}
+
+.gift-box .video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.gift-box.active .video-wrapper {
+  opacity: 1;
+  transform: translateY(-280px) scale(1);
+  pointer-events: auto;
+  z-index: 5;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    min-height: 80vh;
+    padding: 1.5rem 1rem;
+  }
+
+  .one {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .birthday-cake {
+    transform: scale(0.8);
+    transform-origin: center center;
+  }
+
+  .gift-container {
+    --gift-scale: 0.8;
+    bottom: 15%;
+  }
+}
+
+@media (max-width: 520px) {
+  .one h1 {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    max-width: 90%;
+  }
+
+  .birthday-cake {
+    transform: scale(0.62);
+    margin-top: 0.5rem;
+  }
+
+  .gift-container {
+    --gift-scale: 0.62;
+    bottom: 10%;
+  }
+}
+
+@media (max-width: 380px) {
+  section {
+    min-height: 70vh;
+  }
+
+  .birthday-cake {
+    transform: scale(0.52);
+  }
+
+  .gift-container {
+    --gift-scale: 0.5;
+  }
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: ;
+}
