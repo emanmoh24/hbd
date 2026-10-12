@@ -3,11 +3,17 @@ const giftBox = document.querySelector(".gift-box");
 const shadow = document.querySelector(".shadow");
 const giftContainer = document.querySelector(".gift-container");
 const shortVideo = document.querySelector(".short-video");
-const cat = document.querySelector("#birthdayCat")
+const cat = document.querySelector("#birthdayCat");
+const playBtn = document.querySelector("#playBtn");
+const overlay = document.querySelector("#overlay");
 
-window.addEventListener("load", () => {
-    cat.play()
-})
+playBtn.addEventListener("click", () => {
+    cat.play().then(() => {
+        overlay.style.display = "none";
+    }).catch(error => {
+        console.warn("Playback failed:", error);
+    });
+});
 
 click.addEventListener("click", () => {
     click.classList.toggle("active");
